@@ -9,7 +9,9 @@ import Config
 
 config :fetch,
   ecto_repos: [Fetch.Repo],
-  generators: [timestamp_type: :utc_datetime]
+  generators: [timestamp_type: :utc_datetime, binary_id: true]
+
+config :fetch, Fetch.Repo, migration_primary_key: [name: :id, type: :binary_id]
 
 # Configures the endpoint
 config :fetch, FetchWeb.Endpoint,

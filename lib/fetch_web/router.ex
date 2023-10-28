@@ -3,10 +3,13 @@ defmodule FetchWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug Accent.Plug.Request
   end
 
-  scope "/api", FetchWeb do
+  scope "/", FetchWeb do
     pipe_through :api
+    post "/receipts/process", ReceiptController, :process
+    get "/receipts/:id/points", ReceiptController, :points
   end
 
   # Enable LiveDashboard in development

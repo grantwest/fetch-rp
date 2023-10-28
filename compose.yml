@@ -1,0 +1,7 @@
+version: "3"
+services:
+  grant-fetch-rp:
+    build:
+      context: .
+      dockerfile: dockerfile
+    network_mode: "host"
